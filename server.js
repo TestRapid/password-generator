@@ -7,8 +7,10 @@ const os = require("os");
 
 const log = console.log;
 
+// setting the version and descrition
 program.version("1.0.0").description("Simple Password Generator");
 
+// setting arg variables
 program
 	.option("-l, --length <number>", "length of the password", 8)
 	.option("-s, --save", "save password to password.txt")
@@ -16,6 +18,7 @@ program
 	.option("-ns, --no-symbols", "no numbers")
 	.parse();
 
+// getting the variables
 const { length, save, numbers, symbols } = program.opts();
 
 // generating password
@@ -26,8 +29,10 @@ if (save) {
 	savePassword(generatedPassword);
 }
 
+// copy to clipboard
 clipboardy.writeSync(generatedPassword);
 
+// logging the password
 log(chalk.blue(`Generated Password : `) + chalk.bold(generatedPassword));
 log(chalk.yellow(`Password is copied to clipboard`));
 
