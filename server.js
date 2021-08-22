@@ -35,6 +35,10 @@ function createPassword(length = 8, hasNumbers = true, hasSymbols = true) {
 	return password;
 }
 
+if (save) {
+	clipboardy.writeSync(generatedPassword);
+}
+
 log(chalk.blue(`Generated Password : `) + chalk.bold(generatedPassword));
 if (save) {
 	log(chalk.yellow(`Password is copied to clipboard`));
